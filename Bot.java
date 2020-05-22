@@ -6,16 +6,15 @@ import java.util.Scanner;
 
 public class Bot{
     public static void main(String[] args) {
-        
-        String OS = System.getProperty("os.name").toLowerCase();
-
-		if (isWindows()) {
+		if (System.getProperty("os.name").toLowerCase() == "windows") {
 			// Set up ChromeDriver
             System.setProperty("webdriver.chrome.driver","chromedriver.exe");
-            WebDriver driver = new ChromeDriver();
-		} else {
-			
+        } else if (System.getProperty("os.name").toLowerCase() == "mac"){
+            System.setProperty("webdriver.chrome.driver","chromedriver");
+        } else {
+            System.exit(0);
         }
+        WebDriver driver = new ChromeDriver();
 
         //open Instagram login page
         String url = "https://www.instagram.com/";
@@ -25,6 +24,7 @@ public class Bot{
         String username = getUsername();
         String password = getPassword();
         driver.findElement(By.xpath("//input[@name=\"name\"]")).sendKeys(username);
+        System.out.println(password);
     }
      
     public static String getUsername(){
@@ -45,9 +45,4 @@ public class Bot{
         scan.close();
         return password;
     }
-
-     public static boolean isWindows() {
-            return (OS.indexOf("win") >= 0);
-        }
-
 }
