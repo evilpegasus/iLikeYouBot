@@ -1,3 +1,5 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -9,6 +11,8 @@ public class Bot{
         
 
         String url = "https://www.instagram.com/";
+
+        driver.findElement(By.xpath("//input[@name=\"name\"]")).sendKeys("");
     }
 
 
