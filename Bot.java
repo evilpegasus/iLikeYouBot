@@ -14,6 +14,7 @@ public class Bot{
 
         String url = "https://www.instagram.com/";
 
+<<<<<<< HEAD
         //driver.findElement(By.xpath("//input[@name=\"name\"]")).sendKeys("");
 
     }
@@ -34,6 +35,10 @@ public class Bot{
         password = scan.next();
         return password;
         scan.close();
+=======
+        driver.get(url);
+        //driver.findElement(By.xpath("//input[@name=\"name\"]")).sendKeys("");
+>>>>>>> 3e8fb8c478e6c8c2a5b3a0eb705ff1452db63bad
     }
 
 
