@@ -12,7 +12,8 @@ public class Bot{
 
         String url = "https://www.instagram.com/";
 
-        driver.findElement(By.xpath("//input[@name=\"name\"]")).sendKeys("");
+        driver.get(url);
+        //driver.findElement(By.xpath("//input[@name=\"name\"]")).sendKeys("");
     }
 
 
