@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Bot{
     public static void main(String[] args) {
-        // Set up ChromeDriver
-        System.out.println(System.getProperty("os.name"));
+        // Detect OS (Windows or Mac only) and set up ChromeDriver
+        System.out.println("Detected operating system: " + System.getProperty("os.name"));
 		if (System.getProperty("os.name").toLowerCase().contains("windows")) {
             System.setProperty("webdriver.chrome.driver","chromedriver.exe");
         } else if (System.getProperty("os.name").toLowerCase().contains("mac")) {
@@ -17,32 +17,29 @@ public class Bot{
         }
         WebDriver driver = new ChromeDriver();
 
-        //open Instagram login page
+        //Open Instagram login page
         String url = "https://www.instagram.com/";
         driver.get(url);
 
-        //get the username and password from console input
-        String username = getUsername();
-        String password = getPassword();
-        driver.findElement(By.xpath("//input[@name=\"name\"]")).sendKeys(username);
-        System.out.println(password);
-    }
-     
-    public static String getUsername(){
-        Scanner scan = new Scanner(System.in);
-        String username;
-        System.out.println("Enter your username: ");
-        username = scan.next();
-        scan.close();
-        return username;
+        //Get the username and password from console input
+        String[] credentials = getCredentials();
+        String username = credentials[0];
+        String password = credentials[1];
+        //this broken
+        //driver.findElement(By.xpath("//input[@name=\"name\"]")).sendKeys(username);
+
     }
 
-    public static String getPassword(){
+    public static String[] getCredentials(){
         Scanner scan = new Scanner(System.in);
-        String password;
+        System.out.println();
+        System.out.println("Enter your username: ");
+        String username = scan.next();
+        System.out.println();
         System.out.println("Enter your password: ");
-        password = scan.next();
+        String password = scan.next();
+        System.out.println();
         scan.close();
-        return password;
+        return new String[] {username, password};
     }
 }
