@@ -1,8 +1,10 @@
 # iLikeYouBot
-A Java bot that likes Instagram photos. Final project for AP CS A. 
-hi 
-Hi can you hear me???
+A Java bot that likes Instagram photos. Final project for AP Computer Science A.
 
-### YO
+Created by Ming, Megan, Keila, and Tyler.
 
-keila here
+## Usage
+This project only supports Windows and Mac.
+
+1. Clone or [download](https://github.com/evilpegasus/iLikeYouBot/archive/master.zip) this repository
+2. Run the main method in [bot.java](bot.java)
