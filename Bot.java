@@ -6,10 +6,11 @@ import java.util.Scanner;
 
 public class Bot{
     public static void main(String[] args) {
-		if (System.getProperty("os.name").toLowerCase() == "windows") {
-			// Set up ChromeDriver
+        // Set up ChromeDriver
+        System.out.println(System.getProperty("os.name"));
+		if (System.getProperty("os.name").toLowerCase().contains("windows")) {
             System.setProperty("webdriver.chrome.driver","chromedriver.exe");
-        } else if (System.getProperty("os.name").toLowerCase() == "mac"){
+        } else if (System.getProperty("os.name").toLowerCase().contains("mac")) {
             System.setProperty("webdriver.chrome.driver","chromedriver");
         } else {
             System.exit(0);
@@ -34,7 +35,6 @@ public class Bot{
         username = scan.next();
         scan.close();
         return username;
-        
     }
 
     public static String getPassword(){
