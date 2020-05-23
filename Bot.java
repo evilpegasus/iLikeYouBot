@@ -25,9 +25,12 @@ public class Bot{
         String[] credentials = getCredentials();
         String username = credentials[0];
         String password = credentials[1];
-        //this broken
-        //driver.findElement(By.xpath("//input[@name=\"name\"]")).sendKeys(username);
 
+        //Login to Instagram
+        driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys(username);
+        driver.findElement(By.xpath("//input[@name=\"password\"]")).sendKeys(password);
+
+        driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
     }
 
     public static String[] getCredentials(){
