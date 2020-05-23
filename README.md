@@ -7,4 +7,5 @@ Created by Ming, Megan, Keila, and Tyler.
 This project only supports Windows and Mac. (Mac untested)
 
 1. Clone or [download](https://github.com/evilpegasus/iLikeYouBot/archive/master.zip) this repository
-2. Run the main method in [bot.java](bot.java) (jar file WIP)
+2. Add all jar files in the [selenium-java-3.141.59](selenium-java-3.141.59) file as java dependencies
+3. Run the main method in [bot.java](bot.java) (jar file WIP)
