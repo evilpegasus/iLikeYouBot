@@ -50,14 +50,16 @@ public class Bot{
         List<WebElement> posts = driver.findElements(By.className("eLAPa"));
         for (WebElement post : posts) {
             post.click();
-            Thread.sleep(8000);
+            Thread.sleep(3000);
             //Like post if not yet liked
-            if (driver.findElement(By.xpath("/html/body/div[4]/div[2]/div/article/div[2]/section[1]/span[1]/button/svg")).getAttribute("aria-label").equals("Unlike")) {
+            if (driver.findElement(By.className("_8-yf5")).getAttribute("aria-label").equals("Like")) {
                 driver.findElement(By.className("wpO6b ")).click();
+                System.out.println("Post liked!");
+                Thread.sleep(2000);
             }
             //Close post
             actions.sendKeys(Keys.ESCAPE).perform();
-            Thread.sleep(8000);
+            Thread.sleep(3000);
         }
     }
 
