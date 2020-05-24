@@ -52,7 +52,8 @@ public class Bot{
             post.click();
             Thread.sleep(3000);
             //Like post if not yet liked
-            if (driver.findElement(By.className("_8-yf5")).getAttribute("aria-label").equals("Like")) {
+            System.out.println("Value of aria-label attribute:\t" + (driver.findElement(By.xpath("/html/body/div[4]/div[2]/div/article/div[2]/section[1]/span[1]/button/svg"))));
+            if (driver.findElement(By.className("wpO6b")).findElement(By.className("_8-yf5")).getAttribute("aria-label").equals("Like")) {
                 driver.findElement(By.className("wpO6b ")).click();
                 System.out.println("Post liked!");
                 Thread.sleep(2000);
