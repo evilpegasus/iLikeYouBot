@@ -1,11 +1,15 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
 import java.util.Scanner;
+import java.util.List;
 
 public class Bot{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // Detect OS (Windows or Mac only) and set up ChromeDriver
         System.out.println("Detected operating system: " + System.getProperty("os.name"));
 		if (System.getProperty("os.name").toLowerCase().contains("windows")) {
@@ -16,21 +20,45 @@ public class Bot{
             System.exit(0);
         }
         WebDriver driver = new ChromeDriver();
+        Actions actions = new Actions(driver);
+
 
         //Open Instagram login page
         String url = "https://www.instagram.com/";
         driver.get(url);
+
 
         //Get the username and password from console input
         String[] credentials = getCredentials();
         String username = credentials[0];
         String password = credentials[1];
 
+
         //Login to Instagram
         driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys(username);
         driver.findElement(By.xpath("//input[@name=\"password\"]")).sendKeys(password);
-
         driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
+        
+
+        //Wait for page load and login to complete
+        Thread.sleep(8000);
+
+        
+        //Like my posts
+        driver.get("https://www.instagram.com/mingyfong/");
+        Thread.sleep(8000);
+        List<WebElement> posts = driver.findElements(By.className("eLAPa"));
+        for (WebElement post : posts) {
+            post.click();
+            Thread.sleep(8000);
+            //Like post if not yet liked
+            if (driver.findElement(By.xpath("/html/body/div[4]/div[2]/div/article/div[2]/section[1]/span[1]/button/svg")).getAttribute("aria-label").equals("Unlike")) {
+                driver.findElement(By.className("wpO6b ")).click();
+            }
+            //Close post
+            actions.sendKeys(Keys.ESCAPE).perform();
+            Thread.sleep(8000);
+        }
     }
 
     public static String[] getCredentials(){
