@@ -46,17 +46,20 @@ public class Bot{
         
         //Like my posts
         driver.get("https://www.instagram.com/mingyfong/");
-        Thread.sleep(8000);
+        Thread.sleep(6000);
         List<WebElement> posts = driver.findElements(By.className("eLAPa"));
         for (WebElement post : posts) {
             post.click();
             Thread.sleep(3000);
             //Like post if not yet liked
-            System.out.println("Value of aria-label attribute:\t" + (driver.findElement(By.xpath("/html/body/div[4]/div[2]/div/article/div[2]/section[1]/span[1]/button/svg"))));
-            if (driver.findElement(By.className("wpO6b")).findElement(By.className("_8-yf5")).getAttribute("aria-label").equals("Like")) {
-                driver.findElement(By.className("wpO6b ")).click();
-                System.out.println("Post liked!");
-                Thread.sleep(2000);
+            List<WebElement> possibleHeartButton = driver.findElements(By.className("_8-yf5"));
+            for (WebElement element : possibleHeartButton) {
+                if (element.getAttribute("aria-label").equals("Like")) {
+                    //driver.findElement(By.className("wpO6b ")).click();
+                    element.click();
+                    System.out.println("Post liked!");
+                    Thread.sleep(2000);
+                }
             }
             //Close post
             actions.sendKeys(Keys.ESCAPE).perform();
