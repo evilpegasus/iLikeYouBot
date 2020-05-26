@@ -54,8 +54,7 @@ public class Bot{
             //Like post if not yet liked
             List<WebElement> possibleHeartButton = driver.findElements(By.className("_8-yf5"));
             for (WebElement element : possibleHeartButton) {
-                if (element.getAttribute("aria-label").equals("Like")) {
-                    //driver.findElement(By.className("wpO6b ")).click();
+                if (element.getAttribute("aria-label").equals("Like") && element.getSize().getWidth() == 24) {  //element.getSize().getWidth() == 24 prevents liking comments (width = 12)
                     element.click();
                     System.out.println("Post liked!");
                     Thread.sleep(2000);
