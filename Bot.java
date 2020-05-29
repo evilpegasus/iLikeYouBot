@@ -42,6 +42,12 @@ public class Bot{
         driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys(username);
         driver.findElement(By.xpath("//input[@name=\"password\"]")).sendKeys(password);
         driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
+
+        //Click "Not Now" Button When Asked to Save Password
+        try {
+            driver.findElement(By.xpath("//button[text()=\"Not Now\"]")).click();
+        } catch (Exception e) {}
+
         
 
         //Wait for page load and login to complete
