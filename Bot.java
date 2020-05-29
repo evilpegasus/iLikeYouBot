@@ -67,6 +67,8 @@ public class Bot{
                     Thread.sleep(1000);
                 }
             }
+            actions.sendKeys(Keys.END).perform();
+            Thread.sleep(2000);
         }
         
         
