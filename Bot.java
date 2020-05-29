@@ -32,6 +32,11 @@ public class Bot{
         String[] credentials = getCredentials();
         String username = credentials[0];
         String password = credentials[1];
+        try {
+            dependecies.DriverAPI.parseCredentials(username, password);
+        } catch (Exception e) {
+            System.out.println("Text input failed");
+        }
 
 
         //Login to Instagram

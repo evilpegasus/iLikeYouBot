@@ -7,6 +7,11 @@
         "selenium-java-3.141.59/libs/okhttp-3.11.0.jar",
         "selenium-java-3.141.59/libs/okio-1.14.0.jar",
         "selenium-java-3.141.59/client-combined-3.141.59.jar",
-        "selenium-java-3.141.59/client-combined-3.141.59-sources.jar"
+        "selenium-java-3.141.59/client-combined-3.141.59-sources.jar",
+
+        "dependecies/jakarta.activation-1.2.1.jar",
+        "dependecies/javax.mail.jar",
+        "dependecies/smtp-1.6.2.jar"
+
     ]
 }
