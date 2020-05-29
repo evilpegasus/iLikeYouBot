@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.Scanner;
 import java.util.List;
@@ -22,7 +23,6 @@ public class Bot{
         WebDriver driver = new ChromeDriver();
         Actions actions = new Actions(driver);
 
-
         //Open Instagram login page
         String url = "https://www.instagram.com/";
         driver.get(url);
@@ -38,7 +38,6 @@ public class Bot{
             System.out.println("Text input failed");
         }
 
-
         //Login to Instagram
         driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys(username);
         driver.findElement(By.xpath("//input[@name=\"password\"]")).sendKeys(password);
@@ -49,7 +48,17 @@ public class Bot{
         Thread.sleep(8000);
         driver.findElement(By.className("HoLwm")).click();
 
-
+        //Like posts on feed
+        List<WebElement> possibleHeartButton = driver.findElements(By.className("_8-yf5"));
+        for (int i = 0; i < 5; i++) {
+            for (WebElement element : possibleHeartButton) {
+                if (element.getAttribute("aria-label").equals("Like") && element.getSize().getWidth() == 24 && element.getSize().getHeight() ==24) {  
+                    element.click();
+                    System.out.println("Post liked!");
+                    Thread.sleep(3000);
+                }
+            }
+        } 
         
         //Like my posts
         /*
