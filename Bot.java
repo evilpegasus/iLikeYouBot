@@ -43,13 +43,13 @@ public class Bot{
         driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys(username);
         driver.findElement(By.xpath("//input[@name=\"password\"]")).sendKeys(password);
         driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
-        driver.findElement(By.className("HoLwm")).click();
         
 
         //Wait for page load and login to complete
         Thread.sleep(8000);
+        driver.findElement(By.className("HoLwm")).click();
 
-        
+
         
         //Like my posts
         /*
