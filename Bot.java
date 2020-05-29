@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.Scanner;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class Bot{
     public static void main(String[] args) throws InterruptedException {
@@ -45,8 +46,8 @@ public class Bot{
 
         //Click "Not Now" Button When Asked to Save Password
         try {
-            driver.findElement(By.xpath("//button[text()=\"Not Now\"]")).click();
-        } catch (Exception e) {}
+            driver.findElement(By.className("sqdOP")).click();
+        } catch (NoSuchElementException e) {}
 
         
 
@@ -56,14 +57,17 @@ public class Bot{
         
 
         //Like posts on feed
-        List<WebElement> possibleHeartButton = driver.findElements(By.className("_8-yf5"));
-        for (WebElement element : possibleHeartButton) {
-            if (element.getAttribute("aria-label").equals("Like") && element.getSize().getWidth() == 24) {  
-                element.click();
-                System.out.println("Post liked!");
-                Thread.sleep(3000);
+        for (int i = 0; i < 5; i++) {
+            List<WebElement> possibleHeartButton = driver.findElements(By.className("_8-yf5"));
+            for (WebElement element : possibleHeartButton) {
+                if (element.getAttribute("aria-label").equals("Like") && element.getSize().getWidth() == 24) {  
+                    element.click();
+                    System.out.println("Post liked!");
+                    Thread.sleep(1000);
+                }
             }
         }
+        
         
         //Like my posts
         /*
