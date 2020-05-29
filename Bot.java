@@ -47,18 +47,17 @@ public class Bot{
         //Wait for page load and login to complete
         Thread.sleep(8000);
         driver.findElement(By.className("HoLwm")).click();
+        
 
         //Like posts on feed
         List<WebElement> possibleHeartButton = driver.findElements(By.className("_8-yf5"));
-        for (int i = 0; i < 5; i++) {
-            for (WebElement element : possibleHeartButton) {
-                if (element.getAttribute("aria-label").equals("Like") && element.getSize().getWidth() == 24 && element.getSize().getHeight() ==24) {  
-                    element.click();
-                    System.out.println("Post liked!");
-                    Thread.sleep(3000);
-                }
+        for (WebElement element : possibleHeartButton) {
+            if (element.getAttribute("aria-label").equals("Like") && element.getSize().getWidth() == 24) {  
+                element.click();
+                System.out.println("Post liked!");
+                Thread.sleep(3000);
             }
-        } 
+        }
         
         //Like my posts
         /*
