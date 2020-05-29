@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.Scanner;
 import java.util.List;
@@ -39,6 +38,7 @@ public class Bot {
             System.out.println("Text input failed");
         }
 
+
         //Login to Instagram
         driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys(username);
         driver.findElement(By.xpath("//input[@name=\"password\"]")).sendKeys(password);
@@ -49,7 +49,6 @@ public class Bot {
         try {
             driver.findElement(By.className("sqdOP")).click();
         } catch (NoSuchElementException e) {}
-
         
 
         //Wait for page load and login to complete
@@ -60,7 +59,6 @@ public class Bot {
         //Like posts on feed
         for (int i = 0; i < 10; i++) {
             List<WebElement> possibleHeartButton = driver.findElements(By.className("_8-yf5"));
-            System.out.println(possibleHeartButton);
             for (WebElement element : possibleHeartButton) {
                 try {
                     if (element.getAttribute("aria-label").equals("Like") && element.getSize().getWidth() == 24) {  
