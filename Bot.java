@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class Bot{
+public class Bot {
     public static void main(String[] args) throws InterruptedException {
         // Detect OS (Windows or Mac only) and set up ChromeDriver
         System.out.println("Detected operating system: " + System.getProperty("os.name"));
@@ -94,7 +94,7 @@ public class Bot{
         */
     }
 
-    public static String[] getCredentials(){
+    public static String[] getCredentials() {
         Scanner scan = new Scanner(System.in);
         System.out.println();
         System.out.println("Enter your username: ");
