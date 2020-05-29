@@ -49,10 +49,11 @@ public class Bot{
         Thread.sleep(8000);
 
         
+        
         //Like my posts
-        driver.get("https://www.instagram.com/");
-        Thread.sleep(6000);
         /*
+        driver.get("https://www.instagram.com/mingyfong/");
+        Thread.sleep(6000);
         List<WebElement> posts = driver.findElements(By.className("eLAPa"));
         for (WebElement post : posts) {
             post.click();
