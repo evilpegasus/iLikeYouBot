@@ -50,8 +50,9 @@ public class Bot{
 
         
         //Like my posts
-        driver.get("https://www.instagram.com/mingyfong/");
+        driver.get("https://www.instagram.com/");
         Thread.sleep(6000);
+        /*
         List<WebElement> posts = driver.findElements(By.className("eLAPa"));
         for (WebElement post : posts) {
             post.click();
@@ -69,6 +70,7 @@ public class Bot{
             actions.sendKeys(Keys.ESCAPE).perform();
             Thread.sleep(3000);
         }
+        */
     }
 
     public static String[] getCredentials(){
