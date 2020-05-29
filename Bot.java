@@ -23,12 +23,12 @@ public class Bot {
         WebDriver driver = new ChromeDriver();
         Actions actions = new Actions(driver);
 
-        //Open Instagram login page
+        // Open Instagram login page
         String url = "https://www.instagram.com/";
         driver.get(url);
 
 
-        //Get the username and password from console input
+        // Get the username and password from console input
         String[] credentials = getCredentials();
         String username = credentials[0];
         String password = credentials[1];
@@ -39,24 +39,24 @@ public class Bot {
         }
 
 
-        //Login to Instagram
+        // Login to Instagram
         driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys(username);
         driver.findElement(By.xpath("//input[@name=\"password\"]")).sendKeys(password);
         driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
         Thread.sleep(5000);
 
-        //Click "Not Now" Button When Asked to Save Password
+        // Click "Not Now" Button When Asked to Save Password
         try {
             driver.findElement(By.className("sqdOP")).click();
         } catch (NoSuchElementException e) {}
         
 
-        //Wait for page load and login to complete
+        // Wait for page load and login to complete
         Thread.sleep(5000);
         driver.findElement(By.className("HoLwm")).click();
         
 
-        //Like posts on feed
+        // Like posts on feed
         for (int i = 0; i < 10; i++) {
             List<WebElement> possibleHeartButton = driver.findElements(By.className("_8-yf5"));
             for (WebElement element : possibleHeartButton) {
@@ -73,7 +73,7 @@ public class Bot {
         }
         
         
-        //Like my posts
+        // Like my posts
         /*
         driver.get("https://www.instagram.com/mingyfong/");
         Thread.sleep(6000);
