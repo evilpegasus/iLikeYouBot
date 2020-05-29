@@ -58,7 +58,7 @@ public class Bot {
         
 
         //Like posts on feed
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             List<WebElement> possibleHeartButton = driver.findElements(By.className("_8-yf5"));
             System.out.println(possibleHeartButton);
             for (WebElement element : possibleHeartButton) {
@@ -70,7 +70,7 @@ public class Bot {
                     }
                 } catch (Exception e) {}
             }
-            actions.sendKeys(Keys.END).perform();
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
             Thread.sleep(3000);
         }
         
