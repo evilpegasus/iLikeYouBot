@@ -4,6 +4,9 @@ A Java bot that likes Instagram photos. Final project for AP Computer Science A.
 
 Created by Ming, Megan, Keila, and Tyler.
 
+## Demo
+[https://youtu.be/AA8sDmARw0M](https://youtu.be/AA8sDmARw0M)
+
 ## Usage
 
 ### Requirements
